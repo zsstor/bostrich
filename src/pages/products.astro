@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getAllProducts } from '../lib/data.ts';
+
+// Fetch all products from data source
+const products = getAllProducts();
+
+// Products catalog page: displays all 7 products in grid layout
+// Requirements: PROD-01, PROD-02
+// Grid: 1 column on mobile, 3 columns on desktop
+// Each card: name, tagline, description, link to product page
+---
+
+<Layout
+  title="Products — Bostrich Enterprise Solutions"
+  description="Browse our catalog of vertical mobility solutions, offboarding accelerators, and growth infrastructure for modern enterprises."
+>
+  <!-- Main content area with responsive spacing -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <!-- Page title -->
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-12 text-center">
+      Products
+    </h1>
+
+    <!-- Product grid or empty state -->
+    <!-- Conditional rendering: show grid if products exist, otherwise show empty state -->
+    {products.length > 0 ? (
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {products.map((product) => (
+          <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
+            <!-- Product name -->
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+              {product.name}
+            </h2>
+            <!-- Product tagline -->
+            <p class="text-lg text-indigo-600 font-medium mb-4">
+              {product.tagline}
+            </p>
+            <!-- Product description -->
+            <p class="text-gray-600 mb-4">
+              {product.description}
+            </p>
+            <!-- Link to individual product page -->
+            <a href={`/products/${product.slug}`} class="text-indigo-600 font-medium hover:text-indigo-700">
+              Learn More →
+            </a>
+          </div>
+        ))}
+      </section>
+    ) : (
+      // Empty state if no products
+      // Graceful error handling for missing or empty product data
+      
+      <div class="max-w-2xl mx-auto text-center py-16">
+        <p class="text-lg text-gray-600">
+          Products are currently unavailable. Please check back later.
+        </p>
+      </div>
+    )}
+  </main>
+</Layout>
