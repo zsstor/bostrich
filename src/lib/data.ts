@@ -48,7 +48,7 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Ladder'
   },
   {
     id: 'agile-ladder',
@@ -71,7 +71,7 @@ export const products: Product[] = [
       business: '4-rung agile ladder',
       enterprise: '5-rung agile ladder with standup mat'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Agile+Ladder'
   },
   {
     id: 'ramp',
@@ -93,7 +93,7 @@ export const products: Product[] = [
       business: '15 ft wooden ramp with handrails',
       enterprise: '20 ft+ custom ramp with ADA compliance'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Ramp'
   },
   {
     id: 'slide',
@@ -115,7 +115,7 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1575783970733-1aaedde1db74?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Slide'
   },
   {
     id: 'thin-slide',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Thin+Slide'
   },
   {
     id: 'scaffolding',
@@ -161,7 +161,7 @@ export const products: Product[] = [
       business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
+    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Scaffolding'
   }
 ];
 
