@@ -77,8 +77,8 @@
 - [x] 03-02-PLAN.md — About page with satirical mission statement (PAGE-03)
 - [x] 03-03-PLAN.md — Pricing page with tiered subscriptions for all products (PAGE-04, PAGE-05)
 - [x] 03-04-PLAN.md — Contact page with enterprise inquiry form (PAGE-06)
-- [ ] 03-05-PLAN.md — Fix verification gap and review warnings: meta descriptions, form validation, empty state (PAGE-07, WR-01, WR-02)
-- [ ] 03-06-PLAN.md — Enhance accessibility with ARIA labels on contact form (IN-02)
+- [x] 03-05-PLAN.md — Fix verification gap and review warnings: meta descriptions, form validation, empty state (PAGE-07, WR-01, WR-02)
+- [x] 03-06-PLAN.md — Enhance accessibility with ARIA labels on contact form (IN-02)
 **UI hint**: yes
 
 ### Phase 4: Individual Product Pages
@@ -152,7 +152,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 5/5 | Complete | 2025-04-17 |
 | 2. Shared Components | 2/2 | Complete | 2026-04-17 |
-| 3. Core Pages | 0/0 | Not started | - |
+| 3. Core Pages | 6/6 | Complete | 2026-04-17 |
 | 4. Individual Product Pages | 0/0 | Not started | - |
 | 5. Refinement & Polish | 0/0 | Not started | - |
 | 6. Deployment & Launch | 0/0 | Not started | - |
