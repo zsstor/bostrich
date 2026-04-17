@@ -25,7 +25,7 @@ const navLinks = [
       </h1>
 
       <!-- Desktop navigation (NAV-01, D-01, D-02) -->
-      <nav aria-label="Main navigation">
+      <nav class="relative" aria-label="Main navigation">
         <ul class="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
             <li>
@@ -40,7 +40,59 @@ const navLinks = [
             </li>
           ))}
         </ul>
+
+        <!-- Mobile hamburger button -->
+        <button
+          id="mobile-menu-button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          class="md:hidden p-2 text-gray-600 hover:text-indigo-600 transition"
+        >
+          <span class="sr-only">Menu</span>
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Mobile menu dropdown -->
+        <ul
+          id="mobile-menu"
+          class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg transition-all max-h-0 opacity-0 overflow-hidden"
+        >
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class={`block py-3 px-4 text-sm transition hover:text-indigo-600 ${
+                  isActive(link.href) ? 'text-indigo-600 font-semibold' : 'text-gray-600'
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
     </div>
   </div>
 </header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let isMenuOpen = false;
+
+  menuButton?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    menuButton.setAttribute('aria-expanded', isMenuOpen.toString());
+
+    // Direct DOM manipulation for class toggling (required for static build)
+    if (isMenuOpen) {
+      mobileMenu.classList.remove('max-h-0', 'opacity-0', 'overflow-hidden');
+      mobileMenu.classList.add('max-h-96', 'opacity-100');
+    } else {
+      mobileMenu.classList.remove('max-h-96', 'opacity-100');
+      mobileMenu.classList.add('max-h-0', 'opacity-0', 'overflow-hidden');
+    }
+  });
+</script>
