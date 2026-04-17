@@ -48,7 +48,7 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Ladder'
+    imageUrl: 'https://images.pexels.com/photos/5799054/pexels-photo-5799054.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'agile-ladder',
@@ -71,7 +71,7 @@ export const products: Product[] = [
       business: '4-rung agile ladder',
       enterprise: '5-rung agile ladder with standup mat'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Agile+Ladder'
+    imageUrl: 'https://images.pexels.com/photos/2463713/pexels-photo-2463713.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'ramp',
@@ -93,7 +93,7 @@ export const products: Product[] = [
       business: '15 ft wooden ramp with handrails',
       enterprise: '20 ft+ custom ramp with ADA compliance'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Ramp'
+    imageUrl: 'https://images.pexels.com/photos/34727191/pexels-photo-34727191.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'slide',
@@ -115,7 +115,7 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Slide'
+    imageUrl: 'https://images.pexels.com/photos/32941676/pexels-photo-32941676.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'thin-slide',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Thin+Slide'
+    imageUrl: 'https://images.pexels.com/photos/12736878/pexels-photo-12736878.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'scaffolding',
@@ -161,7 +161,7 @@ export const products: Product[] = [
       business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
-    imageUrl: 'https://placehold.co/800x600/f3f4f6/6b7280?text=Scaffolding'
+    imageUrl: 'https://images.pexels.com/photos/20339280/pexels-photo-20339280.jpeg?auto=compress&cs=tinysrgb&w=800'
   }
 ];
 
