@@ -30,7 +30,12 @@
 4. Product data structure defined in src/lib/data.ts with 7+ products and buzzword descriptions
 5. Viewport meta tag configured and site displays correctly on mobile devices
 
-**Plans:** TBD
+**Plans:** 5 plans
+- [ ] 01-01-PLAN.md — Initialize Astro v6.1.7 project with static output (FND-01)
+- [ ] 01-02-PLAN.md — Configure Tailwind CSS v4.2.0 with design tokens (FND-02, FND-03)
+- [ ] 01-03-PLAN.md — Create base layout with semantic HTML (FND-04)
+- [ ] 01-04-PLAN.md — Configure viewport meta tag for responsive design (FND-06)
+- [ ] 01-05-PLAN.md — Define product data structure (FND-05)
 
 ### Phase 2: Shared Components
 
@@ -137,7 +142,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/0 | Not started | - |
+| 1. Foundation & Design System | 0/5 | Planned | - |
 | 2. Shared Components | 0/0 | Not started | - |
 | 3. Core Pages | 0/0 | Not started | - |
 | 4. Individual Product Pages | 0/0 | Not started | - |
