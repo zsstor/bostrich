@@ -191,6 +191,24 @@ export const testimonials: Testimonial[] = [
     author: "Jennifer Liu",
     title: "CTO",
     company: "TechCo Industries"
+  },
+  {
+    quote: "The cliff was the hardest part of our compensation structure. Bostrich helped every executive get past it.",
+    author: "David Park",
+    title: "VP of People",
+    company: "Unicorn Ventures"
+  },
+  {
+    quote: "Our offboarding process used to take weeks. Now it takes seconds.",
+    author: "Amanda Torres",
+    title: "HR Director",
+    company: "FastGrowth Inc"
+  },
+  {
+    quote: "Finally, a platform that understands what it means to build something from the ground up.",
+    author: "Michael Foster",
+    title: "Founder",
+    company: "Bootstrap Capital"
   }
 ];
 
