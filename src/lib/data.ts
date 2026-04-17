@@ -178,37 +178,37 @@ export const testimonials: Testimonial[] = [
     quote: "Bostrich helped us reach the next level. Their solutions scaled perfectly with our vertical.",
     author: "Sarah Chen",
     title: "VP of Operations",
-    company: "Series B Startup"
+    company: "Gro.io"
   },
   {
     quote: "When our board needed an exit strategy, Bostrich made the transition smooth and painless.",
     author: "Marcus Webb",
     title: "CEO",
-    company: "Acme Corp"
+    company: "Pivvot"
   },
   {
     quote: "We needed infrastructure to support our growth. Bostrich delivered exactly what we needed to keep climbing.",
     author: "Jennifer Liu",
     title: "CTO",
-    company: "TechCo Industries"
+    company: "Stackly"
   },
   {
     quote: "The cliff was the hardest part of our compensation structure. Bostrich helped every executive get past it.",
     author: "David Park",
     title: "VP of People",
-    company: "Unicorn Ventures"
+    company: "Vestly"
   },
   {
     quote: "Our offboarding process used to take weeks. Now it takes seconds.",
     author: "Amanda Torres",
     title: "HR Director",
-    company: "FastGrowth Inc"
+    company: "Churnr"
   },
   {
     quote: "Finally, a platform that understands what it means to build something from the ground up.",
     author: "Michael Foster",
     title: "Founder",
-    company: "Bootstrap Capital"
+    company: "Foundr Capital"
   }
 ];
 
