@@ -118,9 +118,9 @@ export const products: Product[] = [
     imageUrl: '/images/slide.png'
   },
   {
-    id: 'thin-slide',
-    name: 'Thin Slide',
-    slug: 'thin-slide',
+    id: 'lean-slide',
+    name: 'Lean Slide',
+    slug: 'lean-slide',
     tagline: 'Offboarding accelerators for lean startups',
     description: 'A narrower slide.',
     price: 249,
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: '/images/thin-slide.png'
+    imageUrl: '/images/lean-slide.png'
   },
   {
     id: 'scaffolding',
@@ -208,7 +208,7 @@ export const testimonials: Testimonial[] = [
     quote: "Finally, a platform that understands what it means to build something from the ground up.",
     author: "Michael Foster",
     title: "Founder",
-    company: "Foundr Capital"
+    company: "Dumpstr"
   }
 ];
 
