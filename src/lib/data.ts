@@ -13,8 +13,9 @@ export interface Product {
     material: string;
     weight: string;
     capacity?: string;
+    rungSpacing?: string;
   };
-  // Pricing tiers for the pricing page - no free tier (nothing's actually free)
+  // Pricing tiers for the pricing page
   pricingTiers: {
     starter: string;
     growth: string;
@@ -38,7 +39,8 @@ export const products: Product[] = [
       width: '18 in',
       material: 'Aluminum',
       weight: '12 lbs',
-      capacity: '250 lbs'
+      capacity: '250 lbs',
+      rungSpacing: '12 in'
     },
     pricingTiers: {
       starter: '4-rung ladder',
@@ -46,29 +48,30 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1597383822240-9059df348774?w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80'
   },
   {
     id: 'agile-ladder',
     name: 'Agile Ladder',
     slug: 'agile-ladder',
     tagline: 'Scalable solutions for agile startups',
-    description: 'A shorter ladder.',
+    description: 'A ladder with wider rung spacing.',
     price: 89,
     specs: {
-      height: '4 ft',
-      width: '16 in',
+      height: '8 ft',
+      width: '18 in',
       material: 'Aluminum',
-      weight: '7 lbs',
-      capacity: '225 lbs'
+      weight: '9 lbs',
+      capacity: '225 lbs',
+      rungSpacing: '24 in'
     },
     pricingTiers: {
-      starter: '2-rung stepladder',
-      growth: '3-rung stepladder',
-      business: '4-rung stepladder',
-      enterprise: '5-rung stepladder with standup mat'
+      starter: '2-rung agile ladder',
+      growth: '3-rung agile ladder',
+      business: '4-rung agile ladder',
+      enterprise: '5-rung agile ladder with standup mat'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=800&q=80'
   },
   {
     id: 'ramp',
@@ -112,7 +115,7 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1590416997829-71ed96d808c0?w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1575783970733-1aaedde1db74?w=800&q=80'
   },
   {
     id: 'thin-slide',
@@ -135,28 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80'
-  },
-  {
-    id: 'cliff',
-    name: 'Cliff',
-    slug: 'cliff',
-    tagline: 'Cliff-management for executives and non-executives alike',
-    description: 'A cliff.',
-    price: 999,
-    specs: {
-      height: '50 ft',
-      material: 'Natural granite',
-      weight: 'Approx. 12 tons',
-      capacity: 'Unlimited'
-    },
-    pricingTiers: {
-      starter: '15 ft cliff face',
-      growth: '30 ft cliff face',
-      business: '50 ft cliff face',
-      enterprise: '100 ft+ cliff with rappelling equipment'
-    },
-    imageUrl: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800&q=80'
   },
   {
     id: 'scaffolding',
@@ -183,6 +165,35 @@ export const products: Product[] = [
   }
 ];
 
+// Testimonials - including the cliff management joke
+export interface Testimonial {
+  quote: string;
+  author: string;
+  title: string;
+  company: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: "Bostrich's cliff-management solutions helped our executives navigate their vesting schedules with confidence. The 4-year cliff has never felt so manageable.",
+    author: "Sarah Chen",
+    title: "VP of People",
+    company: "Series B Startup"
+  },
+  {
+    quote: "We scaled from 3 rungs to 12 in just two quarters. Bostrich understood our vertical growth needs.",
+    author: "Marcus Webb",
+    title: "COO",
+    company: "Acme Corp"
+  },
+  {
+    quote: "The offboarding accelerators streamlined our transition process significantly. Highly recommend for any growing team.",
+    author: "Jennifer Liu",
+    title: "HR Director",
+    company: "TechCo Industries"
+  }
+];
+
 // Helper function to get product by slug
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find(product => product.slug === slug);
@@ -191,6 +202,11 @@ export function getProductBySlug(slug: string): Product | undefined {
 // Helper function to get all products
 export function getAllProducts(): Product[] {
   return products;
+}
+
+// Helper function to get all testimonials
+export function getAllTestimonials(): Testimonial[] {
+  return testimonials;
 }
 
 // Format price for display
