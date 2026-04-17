@@ -99,8 +99,8 @@
 7. Product pages include pricing tiers specific to that product
 
 **Plans:** 2 plans
-- [ ] 04-01-PLAN.md — Create products catalog page with grid layout (PROD-01, PROD-02)
-- [ ] 04-02-PLAN.md — Create dynamic product pages with hero, features, and pricing (PROD-03, PROD-04, PROD-05, PROD-06, PROD-07, PROD-08)
+- [x] 04-01-PLAN.md — Create products catalog page with grid layout (PROD-01, PROD-02)
+- [x] 04-02-PLAN.md — Create dynamic product pages with hero, features, and pricing (PROD-03, PROD-04, PROD-05, PROD-06, PROD-07, PROD-08)
 **UI hint**: yes
 
 ### Phase 5: Refinement & Polish
