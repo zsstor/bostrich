@@ -175,21 +175,21 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "Bostrich's cliff-management solutions helped our executives navigate their vesting schedules with confidence. The 4-year cliff has never felt so manageable.",
+    quote: "Bostrich helped us reach the next level. Their solutions scaled perfectly with our vertical.",
     author: "Sarah Chen",
-    title: "VP of People",
+    title: "VP of Operations",
     company: "Series B Startup"
   },
   {
-    quote: "We scaled from 3 rungs to 12 in just two quarters. Bostrich understood our vertical growth needs.",
+    quote: "When our board needed an exit strategy, Bostrich made the transition smooth and painless.",
     author: "Marcus Webb",
-    title: "COO",
+    title: "CEO",
     company: "Acme Corp"
   },
   {
-    quote: "The offboarding accelerators streamlined our transition process significantly. Highly recommend for any growing team.",
+    quote: "We needed infrastructure to support our growth. Bostrich delivered exactly what we needed to keep climbing.",
     author: "Jennifer Liu",
-    title: "HR Director",
+    title: "CTO",
     company: "TechCo Industries"
   }
 ];
