@@ -55,11 +55,12 @@ Initial products (with potential to expand):
 
 - **Domain**: Must deploy to bostri.ch
 - **V1 completion criteria**: Site is live and deployed at bostri.ch
-- **Tech stack**: To be determined during research phase
+- **Tech stack**: Static site generator (e.g., Next.js, Astro, Hugo)
 - **Budget**: Not specified
 - **Timeline**: Not specified
-- **Static site**: No backend or database required
+- **Static site**: No backend or database required — static HTML/CSS/JS
 - **No external services**: Avoid dependencies on APIs, auth providers, payment processing
+- **Brand name**: Bostrich
 
 ## Key Decisions
 
@@ -70,6 +71,7 @@ Initial products (with potential to expand):
 | Modern SaaS aesthetic (Stripe/Vercel vibes) | Clean, minimal design creates stronger contrast with absurd products — — Pending |
 | Static site, no CMS | Simpler to deploy, maintain, and host for parody site — — Pending |
 | Browse-only, no purchasing | Focuses on humor/concept, not e-commerce complexity — — Pending |
+| Static site (no backend) | No authentication, no database, no server — just static assets — — Pending |
 
 ## Evolution
 
