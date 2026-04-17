@@ -126,7 +126,11 @@
 12. Clean, minimal aesthetic matching Stripe/Vercel design language
 13. High-quality product imagery displayed on all product pages
 
-**Plans:** TBD
+**Plans:** 4 plans
+- [ ] 05-01-PLAN.md — Image optimization with fetchpriority and responsive srcset (PERF-01, PERF-02, PERF-03, PERF-04)
+- [ ] 05-02-PLAN.md — Alt text audit and aria-label for social icons (A11Y-03)
+- [ ] 05-03-PLAN.md — Touch target fixes for mobile accessibility (A11Y-05)
+- [ ] 05-04-PLAN.md — Semantic HTML audit and heading hierarchy (A11Y-01)
 **UI hint**: yes
 
 ### Phase 6: Deployment & Launch
@@ -155,8 +159,8 @@
 | 1. Foundation & Design System | 5/5 | Complete | 2025-04-17 |
 | 2. Shared Components | 2/2 | Complete | 2026-04-17 |
 | 3. Core Pages | 6/6 | Complete | 2026-04-17 |
-| 4. Individual Product Pages | 0/2 | Planned | - |
-| 5. Refinement & Polish | 0/0 | Not started | - |
+| 4. Individual Product Pages | 2/2 | Complete | 2026-04-17 |
+| 5. Refinement & Polish | 0/4 | Planned | - |
 | 6. Deployment & Launch | 0/0 | Not started | - |
 
 ## Dependencies
