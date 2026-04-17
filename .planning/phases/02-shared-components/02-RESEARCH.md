@@ -499,17 +499,17 @@ import { Twitter, Github, Linkedin } from '@lucide/astro';
 
 **If this table is empty:** All claims in this research were verified or cited — no user confirmation needed.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Social media placeholder links**
-   - What we know: D-13 specifies Twitter, GitHub, LinkedIn placeholders
-   - What's unclear: Should these link to real Bostrich social accounts, or remain as empty href="#" placeholders?
-   - Recommendation: Use placeholder href="#" for V1, document that real social accounts should be added later (future enhancement)
+1. **Social media placeholder links** — RESOLVED: Use href="#" placeholders
+    - What we know: D-13 specifies Twitter, GitHub, LinkedIn placeholders
+    - What's unclear: Should these link to real Bostrich social accounts, or remain as empty href="#" placeholders?
+    - **RESOLVED:** Plan 02-02 implements href="#" placeholders as recommended for V1. Real social accounts will be added in future enhancement.
 
-2. **Footer legal page creation**
-   - What we know: D-14 requires Privacy Policy and Terms of Service links in footer
-   - What's unclear: Should Phase 2 create these legal pages, or just add links (to be created in future phase)?
-   - Recommendation: Phase 2 adds footer links only. Legal pages are out of V1 scope (per OUT OF SCOPE section), can redirect to /404 for now or create simple placeholder pages.
+2. **Footer legal page creation** — RESOLVED: Footer links only, legal pages out of V1 scope
+    - What we know: D-14 requires Privacy Policy and Terms of Service links in footer
+    - What's unclear: Should Phase 2 create these legal pages, or just add links (to be created in future phase)?
+    - **RESOLVED:** Plan 02-02 adds footer links only. Legal pages are out of V1 scope per REQUIREMENTS.md OUT OF SCOPE section.
 
 ## Environment Availability
 
