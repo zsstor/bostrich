@@ -7,10 +7,10 @@
 ## Phases
 
 - [x] **Phase 1: Foundation & Design System** - Project setup with Astro, Tailwind, design tokens, and core structure
-- [ ] **Phase 2: Shared Components** - Reusable UI components, navigation header, footer, and mobile menu
-- [ ] **Phase 3: Core Pages** - Home, About, Pricing, and Contact pages with all sections
-- [ ] **Phase 4: Individual Product Pages** - 7 product pages with dynamic routing and SaaS-style layouts
-- [ ] **Phase 5: Refinement & Polish** - Responsive design, image optimization, accessibility, and performance
+- [x] **Phase 2: Shared Components** - Reusable UI components, navigation header, footer, and mobile menu
+- [x] **Phase 3: Core Pages** - Home, About, Pricing, and Contact pages with all sections
+- [x] **Phase 4: Individual Product Pages** - 7 product pages with dynamic routing and SaaS-style layouts
+- [x] **Phase 5: Refinement & Polish** - Responsive design, image optimization, accessibility, and performance
 - [ ] **Phase 6: Deployment & Launch** - Deploy to production, configure domain, verify live site
 
 ## Phase Details
@@ -126,11 +126,11 @@
 12. Clean, minimal aesthetic matching Stripe/Vercel design language
 13. High-quality product imagery displayed on all product pages
 
-**Plans:** 4 plans
-- [ ] 05-01-PLAN.md — Image optimization with fetchpriority and responsive srcset (PERF-01, PERF-02, PERF-03, PERF-04)
-- [ ] 05-02-PLAN.md — Alt text audit and aria-label for social icons (A11Y-03)
-- [ ] 05-03-PLAN.md — Touch target fixes for mobile accessibility (A11Y-05)
-- [ ] 05-04-PLAN.md — Semantic HTML audit and heading hierarchy (A11Y-01)
+**Plans:** 4/4 plans executed
+- [x] 05-01-PLAN.md — Image optimization with fetchpriority and responsive srcset (PERF-01, PERF-02, PERF-03, PERF-04)
+- [x] 05-02-PLAN.md — Alt text audit and aria-label for social icons (A11Y-03)
+- [x] 05-03-PLAN.md — Touch target fixes for mobile accessibility (A11Y-05)
+- [x] 05-04-PLAN.md — Semantic HTML audit and heading hierarchy (A11Y-01)
 **UI hint**: yes
 
 ### Phase 6: Deployment & Launch
@@ -150,7 +150,9 @@
 6. robots.txt configured
 7. Lighthouse audit run on production with passing scores (Performance, Accessibility, Best Practices)
 
-**Plans:** TBD
+**Plans:** 2 plans
+- [ ] 06-01-PLAN.md — Add sitemap and robots.txt for SEO (DEPLOY-05, DEPLOY-06)
+- [ ] 06-02-PLAN.md — Deploy to Vercel, configure bostri.ch domain, run Lighthouse audit (DEPLOY-01, DEPLOY-02, DEPLOY-03, DEPLOY-04, DEPLOY-07)
 
 ## Progress
 
@@ -160,7 +162,7 @@
 | 2. Shared Components | 2/2 | Complete | 2026-04-17 |
 | 3. Core Pages | 6/6 | Complete | 2026-04-17 |
 | 4. Individual Product Pages | 2/2 | Complete | 2026-04-17 |
-| 5. Refinement & Polish | 0/4 | Planned | - |
+| 5. Refinement & Polish | 4/4 | Complete | 2026-04-17 |
 | 6. Deployment & Launch | 0/0 | Not started | - |
 
 ## Dependencies
