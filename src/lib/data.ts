@@ -48,30 +48,30 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: 'https://images.pexels.com/photos/5799054/pexels-photo-5799054.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/ladder.png'
   },
   {
     id: 'agile-ladder',
     name: 'Agile Ladder',
     slug: 'agile-ladder',
-    tagline: 'Scalable solutions for agile startups',
-    description: 'A ladder with wider rung spacing.',
+    tagline: 'Flexible infrastructure for agile teams',
+    description: 'A rope ladder.',
     price: 89,
     specs: {
-      height: '8 ft',
-      width: '18 in',
-      material: 'Aluminum',
-      weight: '9 lbs',
-      capacity: '225 lbs',
-      rungSpacing: '24 in'
+      length: '8 ft',
+      width: '16 in',
+      material: 'Natural hemp rope with wooden rungs',
+      weight: '4 lbs',
+      capacity: '250 lbs',
+      rungSpacing: '12 in'
     },
     pricingTiers: {
-      starter: '2-rung agile ladder',
-      growth: '3-rung agile ladder',
-      business: '4-rung agile ladder',
-      enterprise: '5-rung agile ladder with standup mat'
+      starter: '4-rung rope ladder',
+      growth: '6-rung rope ladder',
+      business: '8-rung rope ladder',
+      enterprise: '10-rung rope ladder with carabiners'
     },
-    imageUrl: 'https://images.pexels.com/photos/2463713/pexels-photo-2463713.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/agile-ladder.png'
   },
   {
     id: 'ramp',
@@ -93,7 +93,7 @@ export const products: Product[] = [
       business: '15 ft wooden ramp with handrails',
       enterprise: '20 ft+ custom ramp with ADA compliance'
     },
-    imageUrl: 'https://images.pexels.com/photos/34727191/pexels-photo-34727191.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/ramp.png'
   },
   {
     id: 'slide',
@@ -115,7 +115,7 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: 'https://images.pexels.com/photos/32941676/pexels-photo-32941676.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/slide.png'
   },
   {
     id: 'thin-slide',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: 'https://images.pexels.com/photos/12736878/pexels-photo-12736878.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/thin-slide.png'
   },
   {
     id: 'scaffolding',
@@ -161,7 +161,7 @@ export const products: Product[] = [
       business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
-    imageUrl: 'https://images.pexels.com/photos/20339280/pexels-photo-20339280.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: '/images/scaffolding.png'
   }
 ];
 
