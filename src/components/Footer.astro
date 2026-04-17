@@ -1,0 +1,50 @@
+---
+import { Twitter, Github, Linkedin } from '@lucide/astro';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full border-t border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Left column: Navigation links -->
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-sm text-gray-600 hover:text-indigo-600 transition">Home</a></li>
+          <li><a href="/products" class="text-sm text-gray-600 hover:text-indigo-600 transition">Products</a></li>
+          <li><a href="/about" class="text-sm text-gray-600 hover:text-indigo-600 transition">About</a></li>
+          <li><a href="/pricing" class="text-sm text-gray-600 hover:text-indigo-600 transition">Pricing</a></li>
+          <li><a href="/contact" class="text-sm text-gray-600 hover:text-indigo-600 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Center column: Social media links -->
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-4">Connect</h3>
+        <div class="flex space-x-4">
+          <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-indigo-600 transition">
+            <Twitter class="w-5 h-5" />
+          </a>
+          <a href="#" aria-label="GitHub" class="text-gray-400 hover:text-indigo-600 transition">
+            <Github class="w-5 h-5" />
+          </a>
+          <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-indigo-600 transition">
+            <Linkedin class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right column: Copyright and legal links -->
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="text-sm text-gray-600 hover:text-indigo-600 transition">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-sm text-gray-600 hover:text-indigo-600 transition">Terms of Service</a></li>
+        </ul>
+        <p class="mt-4 text-sm text-gray-500">
+          © {currentYear} Bostrich. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
