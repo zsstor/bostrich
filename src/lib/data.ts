@@ -12,6 +12,7 @@ export interface Product {
     business?: string;
     enterprise?: string;
   };
+  imageUrl?: string;
 }
 
 // Product array per D-11
@@ -35,7 +36,8 @@ export const products: Product[] = [
       basic: '5 rungs',
       business: '8 rungs',
       enterprise: '12+ rungs with safety harness'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1597383822240-9059df348774?w=800&q=80'
   },
   {
     id: 'agile-ladder',
@@ -56,7 +58,8 @@ export const products: Product[] = [
       basic: '3 rungs',
       business: '4 rungs',
       enterprise: '5 rungs with standup mat'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
   },
   {
     id: 'ramp',
@@ -77,7 +80,8 @@ export const products: Product[] = [
       basic: '10ft ramp',
       business: '15ft ramp',
       enterprise: '20ft+ ramp with handrails'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'
   },
   {
     id: 'slide',
@@ -98,7 +102,8 @@ export const products: Product[] = [
       basic: '12ft slide',
       business: '18ft slide',
       enterprise: '24ft+ slide with emergency braking'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1590416997829-71ed96d808c0?w=800&q=80'
   },
   {
     id: 'thin-slide',
@@ -119,7 +124,8 @@ export const products: Product[] = [
       basic: '8ft slide',
       business: '12ft slide',
       enterprise: '16ft slide with reduced friction'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80'
   },
   {
     id: 'cliff',
@@ -140,7 +146,8 @@ export const products: Product[] = [
       basic: '20ft drop',
       business: '50ft drop',
       enterprise: '100ft+ drop with parachute backup'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80'
   },
   {
     id: 'scaffolding',
@@ -161,7 +168,8 @@ export const products: Product[] = [
       basic: '2 levels',
       business: '3 levels',
       enterprise: '5+ levels with safety certifications'
-    }
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
   }
 ];
 
