@@ -1,61 +1,101 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getAllProducts } from '../lib/data.ts';
+import { getAllProducts, formatPrice } from '../lib/data.ts';
 
-// Fetch all products from data source
 const products = getAllProducts();
-
-// Products catalog page: displays all 7 products in grid layout
-// Requirements: PROD-01, PROD-02
-// Grid: 1 column on mobile, 3 columns on desktop
-// Each card: name, tagline, description, link to product page
 ---
 
 <Layout
-  title="Products — Bostrich Enterprise Solutions"
-  description="Browse our catalog of vertical mobility solutions, offboarding accelerators, and growth infrastructure for modern enterprises."
+  title="Products — Bostrich"
+  description="Browse our catalog of products for your business needs."
 >
-  <!-- Main content area with responsive spacing -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <!-- Page title -->
-    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
       Products
     </h1>
+    <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+      Free shipping on orders over $500
+    </p>
 
-    <!-- Product grid or empty state -->
-    <!-- Conditional rendering: show grid if products exist, otherwise show empty state -->
     {products.length > 0 ? (
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
-            <!-- Product name -->
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">
-              {product.name}
-            </h2>
-            <!-- Product tagline -->
-            <p class="text-lg text-indigo-600 font-medium mb-4">
-              {product.tagline}
-            </p>
-            <!-- Product description -->
-            <p class="text-gray-600 mb-4">
-              {product.description}
-            </p>
-            <!-- Link to individual product page -->
-            <a href={`/products/${product.slug}`} class="text-indigo-600 font-medium hover:text-indigo-700">
-              Learn More →
-            </a>
+          <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+            {product.imageUrl && (
+              <a href={`/products/${product.slug}`}>
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  class="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="p-4">
+              <a href={`/products/${product.slug}`} class="block">
+                <h2 class="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
+                  {product.name}
+                </h2>
+              </a>
+              <p class="text-gray-500 text-sm mt-1 mb-3">{product.description}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-xl font-bold text-gray-900">{formatPrice(product.price)}</span>
+                <button
+                  class="add-to-cart-btn bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded hover:bg-indigo-700 transition-colors"
+                  data-product-id={product.id}
+                  data-product-name={product.name}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
           </div>
         ))}
-      </section>
+      </div>
     ) : (
-      // Empty state if no products
-      // Graceful error handling for missing or empty product data
-      
-      <div class="max-w-2xl mx-auto text-center py-16">
-        <p class="text-lg text-gray-600">
-          Products are currently unavailable. Please check back later.
-        </p>
+      <div class="text-center py-16">
+        <p class="text-lg text-gray-600">No products available.</p>
       </div>
     )}
   </main>
 </Layout>
+
+<script>
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const target = e.target as HTMLButtonElement;
+      const productId = target.dataset.productId;
+      const productName = target.dataset.productName;
+
+      if (!productId) return;
+
+      // Get existing cart or create new one
+      const cartKey = 'bostrich_cart';
+      const stored = localStorage.getItem(cartKey);
+      const cart = stored ? JSON.parse(stored) : [];
+
+      // Add or increment item
+      const existing = cart.find((item: {productId: string}) => item.productId === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ productId, quantity: 1 });
+      }
+
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+      window.dispatchEvent(new CustomEvent('cart-updated'));
+
+      // Visual feedback
+      const originalText = target.textContent;
+      target.textContent = 'Added!';
+      target.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+      target.classList.add('bg-green-600');
+
+      setTimeout(() => {
+        target.textContent = originalText;
+        target.classList.remove('bg-green-600');
+        target.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+      }, 1000);
+    });
+  });
+</script>

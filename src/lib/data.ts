@@ -1,151 +1,160 @@
-// Product interface per D-10
+// Product interface - ecommerce style with real specs
 export interface Product {
   id: string;
   name: string;
   slug: string;
   tagline: string;
   description: string;
-  features: string[];
-  pricing?: {
-    free?: string;
-    basic?: string;
-    business?: string;
-    enterprise?: string;
+  price: number;
+  specs: {
+    height?: string;
+    width?: string;
+    length?: string;
+    material: string;
+    weight: string;
+    capacity?: string;
+  };
+  // Pricing tiers for the pricing page - no free tier (nothing's actually free)
+  pricingTiers: {
+    starter: string;
+    growth: string;
+    business: string;
+    enterprise: string;
   };
   imageUrl?: string;
 }
 
-// Product array per D-11
+// Product catalog - deadpan hardware store vibes
 export const products: Product[] = [
   {
     id: 'ladder',
-    name: 'Ladders',
+    name: 'Ladder',
     slug: 'ladder',
     tagline: 'Scalable solutions to take your business to the next level',
-    description: 'Industry-leading vertical mobility solutions for enterprise growth. Our ladders provide the infrastructure you need to elevate your operations.',
-    features: [
-      'Rungs-as-a-Service (RaaS)',
-      'Vertical scaling architecture',
-      'Multi-tier support system',
-      'Cloud-based climbing',
-      'Real-time altitude monitoring',
-      'Enterprise-grade verticality'
-    ],
-    pricing: {
-      free: '3 rungs',
-      basic: '5 rungs',
-      business: '8 rungs',
-      enterprise: '12+ rungs with safety harness'
+    description: 'A ladder.',
+    price: 149,
+    specs: {
+      height: '8 ft',
+      width: '18 in',
+      material: 'Aluminum',
+      weight: '12 lbs',
+      capacity: '250 lbs'
+    },
+    pricingTiers: {
+      starter: '4-rung ladder',
+      growth: '6-rung ladder',
+      business: '8-rung ladder',
+      enterprise: '12-rung ladder with safety harness'
     },
     imageUrl: 'https://images.unsplash.com/photo-1597383822240-9059df348774?w=800&q=80'
   },
   {
     id: 'agile-ladder',
-    name: 'Agile Ladders',
+    name: 'Agile Ladder',
     slug: 'agile-ladder',
     tagline: 'Scalable solutions for agile startups',
-    description: 'Lean, iterative vertical acceleration for fast-moving teams. Fewer rungs means faster sprints to the next level.',
-    features: [
-      'Minimum viable verticality',
-      'Sprint-ready rungs',
-      'Standup-compatible height',
-      'Agile methodology integration',
-      'Continuous deployment (of yourself)',
-      'Iterative climbing experience'
-    ],
-    pricing: {
-      free: '2 rungs',
-      basic: '3 rungs',
-      business: '4 rungs',
-      enterprise: '5 rungs with standup mat'
+    description: 'A shorter ladder.',
+    price: 89,
+    specs: {
+      height: '4 ft',
+      width: '16 in',
+      material: 'Aluminum',
+      weight: '7 lbs',
+      capacity: '225 lbs'
+    },
+    pricingTiers: {
+      starter: '2-rung stepladder',
+      growth: '3-rung stepladder',
+      business: '4-rung stepladder',
+      enterprise: '5-rung stepladder with standup mat'
     },
     imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
   },
   {
     id: 'ramp',
-    name: 'Ramps',
+    name: 'Ramp',
     slug: 'ramp',
     tagline: 'Offramps for your exit strategy',
-    description: 'Smooth transitions to the next phase of your journey. Our ramps provide the gentle gradient you need for strategic exits.',
-    features: [
-      'Exit-ready architecture',
-      'Smooth gradient APIs',
-      'Transition velocity control',
-      'Multi-angle deployment',
-      'Strategic descent optimization',
-      'IPO-ready surface'
-    ],
-    pricing: {
-      free: '5ft ramp',
-      basic: '10ft ramp',
-      business: '15ft ramp',
-      enterprise: '20ft+ ramp with handrails'
+    description: 'A ramp.',
+    price: 199,
+    specs: {
+      length: '10 ft',
+      width: '36 in',
+      material: 'Pressure-treated wood',
+      weight: '45 lbs',
+      capacity: '500 lbs'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'
+    pricingTiers: {
+      starter: '6 ft wooden ramp',
+      growth: '10 ft wooden ramp',
+      business: '15 ft wooden ramp with handrails',
+      enterprise: '20 ft+ custom ramp with ADA compliance'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
   },
   {
     id: 'slide',
-    name: 'Slides',
+    name: 'Slide',
     slug: 'slide',
     tagline: 'Offboarding accelerators',
-    description: 'Efficient personnel redistribution mechanisms. Our slides accelerate the transition of team members to their next opportunity.',
-    features: [
-      'Automated offboarding',
-      'Frictionless deployment',
-      'Gravity-assisted transitions',
-      'Real-time descent analytics',
-      'Multi-rider support',
-      'Performance-based lubrication'
-    ],
-    pricing: {
-      free: '6ft slide',
-      basic: '12ft slide',
-      business: '18ft slide',
-      enterprise: '24ft+ slide with emergency braking'
+    description: 'A slide.',
+    price: 349,
+    specs: {
+      height: '12 ft',
+      length: '18 ft',
+      material: 'Galvanized steel',
+      weight: '85 lbs',
+      capacity: '200 lbs'
+    },
+    pricingTiers: {
+      starter: '8 ft playground slide',
+      growth: '12 ft steel slide',
+      business: '18 ft commercial slide',
+      enterprise: '24 ft+ slide with emergency braking'
     },
     imageUrl: 'https://images.unsplash.com/photo-1590416997829-71ed96d808c0?w=800&q=80'
   },
   {
     id: 'thin-slide',
-    name: 'Thin Slides',
+    name: 'Thin Slide',
     slug: 'thin-slide',
     tagline: 'Offboarding accelerators for lean startups',
-    description: 'Streamlined personnel redistribution for resource-constrained teams. Same great speed, minimal friction.',
-    features: [
-      'Minimum viable offboarding',
-      'Single-rider optimization',
-      'Budget-friendly descent',
-      'Lean architecture',
-      'Fast-track transitions',
-      'Reduced friction coefficient'
-    ],
-    pricing: {
-      free: '4ft slide',
-      basic: '8ft slide',
-      business: '12ft slide',
-      enterprise: '16ft slide with reduced friction'
+    description: 'A narrower slide.',
+    price: 249,
+    specs: {
+      height: '8 ft',
+      length: '12 ft',
+      width: '18 in',
+      material: 'Stainless steel',
+      weight: '52 lbs',
+      capacity: '175 lbs'
+    },
+    pricingTiers: {
+      starter: '6 ft narrow slide',
+      growth: '8 ft narrow slide',
+      business: '12 ft narrow slide',
+      enterprise: '16 ft narrow slide with reduced friction'
     },
     imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80'
   },
   {
     id: 'cliff',
-    name: 'Cliffs',
+    name: 'Cliff',
     slug: 'cliff',
     tagline: 'Cliff-management for executives and non-executives alike',
-    description: 'Vertical challenge solutions for team development. Our cliffs provide the perfect environment for building character and testing limits.',
-    features: [
-      'Vertical challenge architecture',
-      'Character-building as a service',
-      'Executive-grade edge management',
-      'Team cohesion testing',
-      'Performance anxiety generation',
-      '99.999% cliff uptime'
-    ],
-    pricing: {
-      free: '10ft drop',
-      basic: '20ft drop',
-      business: '50ft drop',
-      enterprise: '100ft+ drop with parachute backup'
+    description: 'A cliff.',
+    price: 999,
+    specs: {
+      height: '50 ft',
+      material: 'Natural granite',
+      weight: 'Approx. 12 tons',
+      capacity: 'Unlimited'
+    },
+    pricingTiers: {
+      starter: '15 ft cliff face',
+      growth: '30 ft cliff face',
+      business: '50 ft cliff face',
+      enterprise: '100 ft+ cliff with rappelling equipment'
     },
     imageUrl: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80'
   },
@@ -154,19 +163,20 @@ export const products: Product[] = [
     name: 'Scaffolding',
     slug: 'scaffolding',
     tagline: 'Scaffolding to assist with growth hacking',
-    description: 'Temporary infrastructure for rapid scaling. Our scaffolding provides the support you need while building your core competencies.',
-    features: [
-      'Growth-hacking infrastructure',
-      'Scalable platform support',
-      'Multi-level accessibility',
-      'Rapid deployment framework',
-      'Temporary stability architecture',
-      'API-first construction'
-    ],
-    pricing: {
-      free: '1 level',
-      basic: '2 levels',
-      business: '3 levels',
+    description: 'Scaffolding.',
+    price: 599,
+    specs: {
+      height: '20 ft',
+      width: '5 ft',
+      length: '7 ft',
+      material: 'Steel tubing',
+      weight: '120 lbs',
+      capacity: '1,000 lbs per platform'
+    },
+    pricingTiers: {
+      starter: '1-level scaffolding frame',
+      growth: '2-level scaffolding system',
+      business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
     imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
@@ -181,4 +191,9 @@ export function getProductBySlug(slug: string): Product | undefined {
 // Helper function to get all products
 export function getAllProducts(): Product[] {
   return products;
+}
+
+// Format price for display
+export function formatPrice(price: number): string {
+  return `$${price.toLocaleString()}`;
 }

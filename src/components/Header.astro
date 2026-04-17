@@ -1,79 +1,96 @@
 ---
-// Header component with navigation (NAV-01, NAV-05)
 const { title = "Bostrich" } = Astro.props;
 
-// Active page highlighting using server-side route detection (NAV-05, D-07, D-08, D-09)
 const currentPath = Astro.url.pathname;
-const isActive = (path: string) => currentPath === path;
+const isActive = (path: string) => currentPath === path || (path !== '/' && currentPath.startsWith(path));
 
-// Navigation links (NAV-01, D-03)
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 ---
 
-<header class="w-full border-b border-gray-200 bg-white">
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
   <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between">
-      <!-- Logo/title (preserved from Phase 1) -->
-      <h1 class="text-xl font-bold text-gray-900 tracking-tight">
+      <!-- Logo -->
+      <a href="/" class="text-xl font-bold text-gray-900 tracking-tight hover:text-indigo-600 transition-colors">
         {title}
-      </h1>
+      </a>
 
-      <!-- Desktop navigation (NAV-01, D-01, D-02) -->
-      <nav class="relative" aria-label="Main navigation">
-        <ul class="hidden md:flex items-center space-x-8">
-          {navLinks.map(link => (
-            <li>
-              <a
-                href={link.href}
-                class={`text-sm transition hover:text-indigo-600 ${
-                  isActive(link.href) ? 'text-indigo-600 font-semibold' : 'text-gray-600'
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`text-sm font-medium transition-colors hover:text-indigo-600 ${
+              isActive(link.href) ? 'text-indigo-600' : 'text-gray-600'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
 
-        <!-- Mobile hamburger button -->
+        <!-- Cart Icon -->
+        <a href="/cart" class="relative text-gray-600 hover:text-indigo-600 transition-colors" aria-label="Cart">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-indigo-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </span>
+        </a>
+      </nav>
+
+      <!-- Mobile: Cart + Hamburger -->
+      <div class="flex items-center gap-4 md:hidden">
+        <!-- Mobile Cart Icon -->
+        <a href="/cart" class="relative text-gray-600 hover:text-indigo-600 transition-colors" aria-label="Cart">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span id="cart-count-mobile" class="hidden absolute -top-2 -right-2 bg-indigo-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </span>
+        </a>
+
+        <!-- Hamburger -->
         <button
           id="mobile-menu-button"
           aria-label="Toggle menu"
           aria-expanded="false"
-          class="md:hidden p-2 text-gray-600 hover:text-indigo-600 transition"
+          class="w-10 h-10 text-gray-600 hover:text-indigo-600 transition flex items-center justify-center"
         >
           <span class="sr-only">Menu</span>
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-
-        <!-- Mobile menu dropdown -->
-        <ul
-          id="mobile-menu"
-          class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg transition-all max-h-0 opacity-0 overflow-hidden"
-        >
-          {navLinks.map(link => (
-            <li>
-              <a
-                href={link.href}
-                class={`block py-3 px-4 text-sm transition hover:text-indigo-600 ${
-                  isActive(link.href) ? 'text-indigo-600 font-semibold' : 'text-gray-600'
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <nav
+      id="mobile-menu"
+      class="md:hidden overflow-hidden transition-all duration-200 max-h-0 opacity-0"
+      aria-label="Mobile navigation"
+    >
+      <div class="pt-4 pb-2 space-y-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`block py-2 text-sm font-medium transition-colors hover:text-indigo-600 ${
+              isActive(link.href) ? 'text-indigo-600' : 'text-gray-600'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -86,13 +103,40 @@ const navLinks = [
     isMenuOpen = !isMenuOpen;
     menuButton.setAttribute('aria-expanded', isMenuOpen.toString());
 
-    // Direct DOM manipulation for class toggling (required for static build)
     if (isMenuOpen) {
-      mobileMenu.classList.remove('max-h-0', 'opacity-0', 'overflow-hidden');
-      mobileMenu.classList.add('max-h-96', 'opacity-100');
+      mobileMenu?.classList.remove('max-h-0', 'opacity-0');
+      mobileMenu?.classList.add('max-h-96', 'opacity-100');
     } else {
-      mobileMenu.classList.remove('max-h-96', 'opacity-100');
-      mobileMenu.classList.add('max-h-0', 'opacity-0', 'overflow-hidden');
+      mobileMenu?.classList.remove('max-h-96', 'opacity-100');
+      mobileMenu?.classList.add('max-h-0', 'opacity-0');
     }
   });
+
+  // Cart count update
+  function updateCartCount() {
+    const cartKey = 'bostrich_cart';
+    const stored = localStorage.getItem(cartKey);
+    const cart = stored ? JSON.parse(stored) : [];
+    const count = cart.reduce((sum: number, item: {quantity: number}) => sum + item.quantity, 0);
+
+    const countEl = document.getElementById('cart-count');
+    const countElMobile = document.getElementById('cart-count-mobile');
+
+    [countEl, countElMobile].forEach(el => {
+      if (el) {
+        if (count > 0) {
+          el.textContent = count > 99 ? '99+' : count.toString();
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      }
+    });
+  }
+
+  // Initial count
+  updateCartCount();
+
+  // Listen for cart updates
+  window.addEventListener('cart-updated', updateCartCount);
 </script>

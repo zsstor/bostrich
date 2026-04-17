@@ -1,30 +1,93 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getAllProducts } from '../lib/data.ts';
-
-const featuredProducts = getAllProducts().slice(0, 4);
 ---
 
-<Layout title="Bostrich — Scalable Solutions to Take Your Business to the Next Level" description="Industry-leading vertical mobility solutions and offboarding accelerators for modern enterprises. Take your business to new heights with Bostrich.">
+<Layout title="Bostrich — Scalable Solutions to Take Your Business to the Next Level" description="Enterprise infrastructure for growth, transitions, and strategic exits. Trusted by forward-thinking organizations worldwide.">
   <main>
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 text-center mb-4">Scalable Solutions to Take Your Business to the Next Level</h1>
-      <p class="text-lg text-gray-600 text-center mb-8 max-w-2xl mx-auto">Industry-leading vertical mobility and offboarding accelerators for modern enterprises</p>
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 text-center mb-6">
+        Scalable Solutions to Take Your Business to the Next Level
+      </h1>
+      <p class="text-xl text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+        Enterprise infrastructure for growth, transitions, and strategic exits. We help organizations accelerate what matters.
+      </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/products" class="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors">Get Started</a>
-        <a href="/about" class="inline-block text-indigo-600 font-semibold py-3 px-6 hover:text-indigo-700 transition-colors">Learn More</a>
+        <a href="/products" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-colors">
+          View Products
+        </a>
+        <a href="/pricing" class="inline-block text-indigo-600 font-semibold py-3 px-8 hover:text-indigo-700 transition-colors">
+          See Pricing
+        </a>
       </div>
     </section>
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Featured Products</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {featuredProducts.map(product => (
-          <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-            <p class="text-indigo-600 font-medium mb-3">{product.tagline}</p>
-            <p class="text-gray-600">{product.description}</p>
+
+    <!-- Value Props Section -->
+    <section class="bg-white border-y border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-16">Why Organizations Choose Bostrich</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Accelerate Growth</h3>
+            <p class="text-gray-600">Purpose-built solutions that help your organization reach new heights. Scale with confidence.</p>
           </div>
-        ))}
+          <div class="text-center">
+            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Enterprise-Grade</h3>
+            <p class="text-gray-600">Built for organizations that demand reliability. Our solutions meet the highest standards.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Smooth Transitions</h3>
+            <p class="text-gray-600">Whether you're scaling up or executing an exit strategy, we make transitions seamless.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">10K+</div>
+          <div class="text-gray-600">Organizations Served</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">99.9%</div>
+          <div class="text-gray-600">Uptime Guarantee</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">47</div>
+          <div class="text-gray-600">Countries</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">24/7</div>
+          <div class="text-gray-600">Support Available</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-indigo-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to take the next step?</h2>
+        <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">Join thousands of organizations that trust Bostrich for their growth and transition needs.</p>
+        <a href="/products" class="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-lg hover:bg-indigo-50 transition-colors">
+          Explore Solutions
+        </a>
       </div>
     </section>
   </main>
