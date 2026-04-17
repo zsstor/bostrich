@@ -98,7 +98,9 @@
 6. Product pages display high-quality product imagery
 7. Product pages include pricing tiers specific to that product
 
-**Plans:** TBD
+**Plans:** 2 plans
+- [ ] 04-01-PLAN.md — Create products catalog page with grid layout (PROD-01, PROD-02)
+- [ ] 04-02-PLAN.md — Create dynamic product pages with hero, features, and pricing (PROD-03, PROD-04, PROD-05, PROD-06, PROD-07, PROD-08)
 **UI hint**: yes
 
 ### Phase 5: Refinement & Polish
@@ -153,7 +155,7 @@
 | 1. Foundation & Design System | 5/5 | Complete | 2025-04-17 |
 | 2. Shared Components | 2/2 | Complete | 2026-04-17 |
 | 3. Core Pages | 6/6 | Complete | 2026-04-17 |
-| 4. Individual Product Pages | 0/0 | Not started | - |
+| 4. Individual Product Pages | 0/2 | Planned | - |
 | 5. Refinement & Polish | 0/0 | Not started | - |
 | 6. Deployment & Launch | 0/0 | Not started | - |
 
