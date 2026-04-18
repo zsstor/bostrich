@@ -55,7 +55,7 @@ export const products: Product[] = [
     name: 'Rope Ladder',
     slug: 'rope-ladder',
     tagline: 'Flexible infrastructure for agile teams',
-    description: 'A rope ladder. Built for teams that pivot fast and iterate faster. Adapts to any environment. May require sprint planning to ascend.',
+    description: 'A rope ladder. Built for teams that pivot fast and iterate faster. Adapts to any environment.',
     price: 89,
     specs: {
       length: '8 ft',
@@ -78,7 +78,7 @@ export const products: Product[] = [
     name: 'Ramp',
     slug: 'ramp',
     tagline: 'Offramps for your exit strategy',
-    description: 'A ramp. Engineered for smooth transitions during M&A, IPO, or acqui-hire scenarios. Gradient optimized for maximum deal velocity.',
+    description: 'A ramp. Smooth transitions for stakeholders at every level. ADA-compliant configurations available for enterprise customers.',
     price: 199,
     specs: {
       length: '10 ft',
@@ -144,7 +144,7 @@ export const products: Product[] = [
     id: 'scaffolding',
     name: 'Scaffolding',
     slug: 'scaffolding',
-    tagline: 'Scaffolding to assist with growth hacking',
+    tagline: 'Hack your way to better growth',
     description: 'Scaffolding. Temporary infrastructure for permanent ambitions. Deploy fast, iterate faster, dismantle when you pivot. Enterprise licenses available.',
     price: 599,
     specs: {
