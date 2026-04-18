@@ -48,7 +48,7 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: '/images/ladder.png'
+    imageUrl: '/images/ladder.webp'
   },
   {
     id: 'rope-ladder',
@@ -71,7 +71,7 @@ export const products: Product[] = [
       business: '8-rung rope ladder',
       enterprise: '10-rung rope ladder with carabiners'
     },
-    imageUrl: '/images/rope-ladder.png'
+    imageUrl: '/images/rope-ladder.webp'
   },
   {
     id: 'ramp',
@@ -93,7 +93,7 @@ export const products: Product[] = [
       business: '15 ft wooden ramp with handrails',
       enterprise: '20 ft+ custom ramp with ADA compliance'
     },
-    imageUrl: '/images/ramp.png'
+    imageUrl: '/images/ramp.webp'
   },
   {
     id: 'slide',
@@ -115,7 +115,7 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: '/images/slide.png'
+    imageUrl: '/images/slide.webp'
   },
   {
     id: 'narrow-slide',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: '/images/narrow-slide.png'
+    imageUrl: '/images/narrow-slide.webp'
   },
   {
     id: 'scaffolding',
@@ -161,7 +161,7 @@ export const products: Product[] = [
       business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
-    imageUrl: '/images/scaffolding.png'
+    imageUrl: '/images/scaffolding.webp'
   }
 ];
 
