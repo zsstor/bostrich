@@ -34,7 +34,35 @@ const tiers = [
 ];
 ---
 
-<Layout title="Bostrich — Subscription" description="Ladder-as-a-Service. As low as $0.95/rung/month.">
+<Layout title="Subscription — Bostrich" description="Ladder-as-a-Service. As low as $0.95/rung/month.">
+  <!-- FAQ JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I add more rungs later?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Upgrade anytime from your dashboard and a technician will arrive within 2-3 business days to install your additional rungs on-site." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I downgrade?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A technician will visit to remove the excess rungs. Please ensure someone is present during the 4-hour service window to avoid rescheduling fees." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum commitment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No long-term contracts. Cancel anytime. Though we've found most customers stay for the long climb." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer annual billing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! Save 20% with annual billing. That's like getting 2.4 months of rungs free." }
+      }
+    ]
+  })} />
+
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center mb-16">
       <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Ladder-as-a-Service</h1>
