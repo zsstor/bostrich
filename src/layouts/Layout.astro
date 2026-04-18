@@ -3,16 +3,67 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/design-tokens.css';
 
-const { title = "Bostrich", description = "" } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = "Bostrich",
+  description = "Enterprise infrastructure for growth, transitions, and strategic exits. Trusted by forward-thinking organizations worldwide.",
+  image = "/favicon.png",
+  type = "website"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="Bostrich" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Umami Analytics -->
+    <script defer src="https://analytics.bostri.ch/script.js" data-website-id="d1b8bc0d-cf9d-4265-bf78-99bbe818756e"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bostrich",
+      "url": "https://bostri.ch",
+      "logo": "https://bostri.ch/favicon.png",
+      "description": "Enterprise infrastructure for growth, transitions, and strategic exits.",
+      "sameAs": []
+    })} />
+
     <style>
       @font-face {
         font-family: 'Inter';
