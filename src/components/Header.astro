@@ -7,7 +7,7 @@ const isActive = (path: string) => currentPath === path || (path !== '/' && curr
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/subscription', label: 'Subscription', badge: 'New!' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -31,6 +31,11 @@ const navLinks = [
             }`}
           >
             {link.label}
+            {link.badge && (
+              <span class="ml-1 text-xs bg-green-500 text-white px-1.5 py-0.5 rounded-full font-semibold">
+                {link.badge}
+              </span>
+            )}
           </a>
         ))}
 
@@ -87,6 +92,11 @@ const navLinks = [
             }`}
           >
             {link.label}
+            {link.badge && (
+              <span class="ml-1 text-xs bg-green-500 text-white px-1.5 py-0.5 rounded-full font-semibold">
+                {link.badge}
+              </span>
+            )}
           </a>
         ))}
       </div>

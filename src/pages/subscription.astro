@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tiers = [
+  {
+    name: 'Starter',
+    rungs: 1,
+    price: 8,
+    description: '1-rung ladder. For founders who just need to reach the first shelf.',
+    features: ['1 aluminum rung', 'Basic support rails', 'Email support'],
+  },
+  {
+    name: 'Growth',
+    rungs: 2,
+    price: 16,
+    description: '2-rung ladder. Our most popular tier for scaling teams.',
+    features: ['2 aluminum rungs', 'Reinforced support rails', 'Priority email support', 'Slack community access'],
+    popular: true,
+  },
+  {
+    name: 'Business',
+    rungs: 4,
+    price: 32,
+    description: '4-rung ladder. For organizations ready to reach new heights.',
+    features: ['4 aluminum rungs', 'Premium support rails', 'Dedicated account manager', 'Custom branding options'],
+  },
+  {
+    name: 'Enterprise',
+    rungs: null,
+    price: null,
+    description: 'Unlimited rungs. For enterprises with unlimited vertical ambitions.',
+    features: ['Unlimited rungs', 'White-glove installation', '24/7 phone support', 'SLA guarantees', 'On-site training'],
+  },
+];
+---
+
+<Layout title="Subscription — Bostrich" description="Ladder-as-a-Service. As low as $1/rung/month.">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Ladder-as-a-Service</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-2">
+        Subscribe to the rungs you need. Scale up anytime.
+      </p>
+      <p class="text-3xl font-bold text-indigo-600">
+        As low as $1/rung/month
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      {tiers.map((tier) => (
+        <div class={`bg-white border rounded-xl p-6 flex flex-col relative ${tier.popular ? 'border-2 border-indigo-600 shadow-lg' : 'border-gray-200'}`}>
+          {tier.popular && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold py-1 px-3 rounded-full whitespace-nowrap">
+              Most Popular
+            </div>
+          )}
+
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{tier.name}</h3>
+
+          <div class="mb-4">
+            {tier.price ? (
+              <div>
+                <span class="text-4xl font-bold text-gray-900">${tier.price}</span>
+                <span class="text-gray-500">/month</span>
+                {tier.rungs && (
+                  <p class="text-sm text-gray-500 mt-1">{tier.rungs} rung{tier.rungs > 1 ? 's' : ''} included</p>
+                )}
+              </div>
+            ) : (
+              <div>
+                <span class="text-4xl font-bold text-gray-900">Custom</span>
+                <p class="text-sm text-gray-500 mt-1">Contact for pricing</p>
+              </div>
+            )}
+          </div>
+
+          <p class="text-gray-600 text-sm mb-6">{tier.description}</p>
+
+          <ul class="space-y-2 mb-8 flex-1">
+            {tier.features.map((feature) => (
+              <li class="flex items-start text-sm text-gray-600">
+                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={tier.price ? '/products/ladder' : '/contact'}
+            class={`block text-center py-3 px-4 rounded-lg font-medium transition-colors ${
+              tier.popular
+                ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                : tier.price === null
+                ? 'bg-white text-indigo-600 border border-indigo-600 hover:bg-indigo-50'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+            }`}
+          >
+            {tier.price ? 'Get Started' : 'Contact Sales'}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- FAQ -->
+    <section class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">Can I add more rungs later?</h3>
+          <p class="text-gray-600">Absolutely. Our platform scales with your needs. Upgrade anytime and we'll ship additional rungs within 2-3 business days.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">What happens if I downgrade?</h3>
+          <p class="text-gray-600">We'll send a prepaid shipping label for the extra rungs. Please ensure they're returned within 30 days to avoid additional charges.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">Is there a minimum commitment?</h3>
+          <p class="text-gray-600">No long-term contracts. Cancel anytime. Though we've found most customers stay for the long climb.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">Do you offer annual billing?</h3>
+          <p class="text-gray-600">Yes! Save 20% with annual billing. That's like getting 2.4 months of rungs free.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise CTA -->
+    <section class="mt-16 bg-gray-900 rounded-2xl p-8 md:p-12 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Need unlimited vertical mobility?</h2>
+      <p class="text-gray-400 mb-6 max-w-xl mx-auto">
+        Our enterprise team will work with you to design a ladder subscription that meets your organization's unique climbing requirements.
+      </p>
+      <a href="/contact" class="inline-block bg-white text-gray-900 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+        Contact Enterprise Sales
+      </a>
+    </section>
+  </main>
+</Layout>

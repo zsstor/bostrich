@@ -32,7 +32,7 @@ export const products: Product[] = [
     name: 'Ladder',
     slug: 'ladder',
     tagline: 'Scalable solutions to take your business to the next level',
-    description: 'A ladder.',
+    description: 'A ladder. Enterprise-grade vertical mobility for teams ready to scale. Each rung represents a milestone on your roadmap to success.',
     price: 149,
     specs: {
       height: '8 ft',
@@ -51,11 +51,11 @@ export const products: Product[] = [
     imageUrl: '/images/ladder.png'
   },
   {
-    id: 'agile-ladder',
-    name: 'Agile Ladder',
-    slug: 'agile-ladder',
+    id: 'rope-ladder',
+    name: 'Rope Ladder',
+    slug: 'rope-ladder',
     tagline: 'Flexible infrastructure for agile teams',
-    description: 'A rope ladder.',
+    description: 'A rope ladder. Built for teams that pivot fast and iterate faster. Adapts to any environment. May require sprint planning to ascend.',
     price: 89,
     specs: {
       length: '8 ft',
@@ -71,14 +71,14 @@ export const products: Product[] = [
       business: '8-rung rope ladder',
       enterprise: '10-rung rope ladder with carabiners'
     },
-    imageUrl: '/images/agile-ladder.png'
+    imageUrl: '/images/rope-ladder.png'
   },
   {
     id: 'ramp',
     name: 'Ramp',
     slug: 'ramp',
     tagline: 'Offramps for your exit strategy',
-    description: 'A ramp.',
+    description: 'A ramp. Engineered for smooth transitions during M&A, IPO, or acqui-hire scenarios. Gradient optimized for maximum deal velocity.',
     price: 199,
     specs: {
       length: '10 ft',
@@ -100,7 +100,7 @@ export const products: Product[] = [
     name: 'Slide',
     slug: 'slide',
     tagline: 'Offboarding accelerators',
-    description: 'A slide.',
+    description: 'A slide. Pre-lubricated for reduced friction and engineered to empower your teams to achieve greater velocity. Results may vary.',
     price: 349,
     specs: {
       height: '12 ft',
@@ -122,7 +122,7 @@ export const products: Product[] = [
     name: 'Lean Slide',
     slug: 'lean-slide',
     tagline: 'Offboarding accelerators for lean startups',
-    description: 'A narrower slide.',
+    description: 'A narrower slide. Best deployed as a contingency plan to de-risk your exit strategy. Fits through standard office doorways.',
     price: 249,
     specs: {
       height: '8 ft',
@@ -145,7 +145,7 @@ export const products: Product[] = [
     name: 'Scaffolding',
     slug: 'scaffolding',
     tagline: 'Scaffolding to assist with growth hacking',
-    description: 'Scaffolding.',
+    description: 'Scaffolding. Temporary infrastructure for permanent ambitions. Deploy fast, iterate faster, dismantle when you pivot. Enterprise licenses available.',
     price: 599,
     specs: {
       height: '20 ft',
