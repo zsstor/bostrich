@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -11,39 +12,35 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
+  const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
+  const GMAIL_ADDRESS = process.env.GMAIL_ADDRESS || 'bostrich@gmail.com';
 
-  if (!RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not configured');
+  if (!GMAIL_APP_PASSWORD) {
+    console.error('GMAIL_APP_PASSWORD not configured');
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: GMAIL_ADDRESS,
+      pass: GMAIL_APP_PASSWORD,
+    },
+  });
+
   try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Bostrich Contact <onboarding@resend.dev>',
-        to: 'bostrich@gmail.com',
-        subject: `Contact from ${firstName} ${lastName}${company ? ` at ${company}` : ''}`,
-        text: `Name: ${firstName} ${lastName}
+    await transporter.sendMail({
+      from: `"Bostrich Contact" <${GMAIL_ADDRESS}>`,
+      to: GMAIL_ADDRESS,
+      replyTo: email,
+      subject: `Contact from ${firstName} ${lastName}${company ? ` at ${company}` : ''}`,
+      text: `Name: ${firstName} ${lastName}
 Email: ${email}
 Company: ${company || 'Not provided'}
 
 Message:
 ${message}`,
-        reply_to: email,
-      }),
     });
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Resend error:', error);
-      return res.status(500).json({ error: 'Failed to send email' });
-    }
 
     return res.status(200).json({ success: true });
   } catch (error) {

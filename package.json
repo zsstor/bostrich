@@ -16,9 +16,11 @@
     "@lucide/astro": "^1.8.0",
     "@tailwindcss/vite": "4.2.2",
     "astro": "^6.1.7",
+    "nodemailer": "^8.0.5",
     "tailwindcss": "4.2.0"
   },
   "devDependencies": {
+    "@types/nodemailer": "^8.0.0",
     "typescript": "^5.9.3"
   }
 }
