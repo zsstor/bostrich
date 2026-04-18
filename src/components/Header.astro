@@ -1,6 +1,4 @@
 ---
-const { title = "Bostrich" } = Astro.props;
-
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) => currentPath === path || (path !== '/' && currentPath.startsWith(path));
 
@@ -19,7 +17,7 @@ const navLinks = [
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 tracking-tight hover:text-indigo-600 transition-colors">
         <img src="/favicon.png" alt="" class="w-8 h-8" />
-        {title}
+        Bostrich
       </a>
 
       <!-- Desktop Navigation -->
@@ -127,7 +125,14 @@ const navLinks = [
   function updateCartCount() {
     const cartKey = 'bostrich_cart';
     const stored = localStorage.getItem(cartKey);
-    const cart = stored ? JSON.parse(stored) : [];
+    let cart = [];
+    try {
+      cart = stored ? JSON.parse(stored) : [];
+      if (!Array.isArray(cart)) cart = [];
+    } catch {
+      localStorage.removeItem(cartKey);
+      cart = [];
+    }
     const count = cart.reduce((sum: number, item: {quantity: number}) => sum + item.quantity, 0);
 
     const countEl = document.getElementById('cart-count');

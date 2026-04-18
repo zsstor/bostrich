@@ -23,6 +23,8 @@ export interface Product {
     enterprise: string;
   };
   imageUrl?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 // Product catalog - deadpan hardware store vibes
@@ -48,7 +50,9 @@ export const products: Product[] = [
       business: '8-rung ladder',
       enterprise: '12-rung ladder with safety harness'
     },
-    imageUrl: '/images/ladder.webp'
+    imageUrl: '/images/ladder.webp',
+    imageWidth: 1200,
+    imageHeight: 896
   },
   {
     id: 'rope-ladder',
@@ -71,7 +75,9 @@ export const products: Product[] = [
       business: '8-rung rope ladder',
       enterprise: '10-rung rope ladder with carabiners'
     },
-    imageUrl: '/images/rope-ladder.webp'
+    imageUrl: '/images/rope-ladder.webp',
+    imageWidth: 1024,
+    imageHeight: 1536
   },
   {
     id: 'ramp',
@@ -93,7 +99,9 @@ export const products: Product[] = [
       business: '15 ft wooden ramp with handrails',
       enterprise: '20 ft+ custom ramp with ADA compliance'
     },
-    imageUrl: '/images/ramp.webp'
+    imageUrl: '/images/ramp.webp',
+    imageWidth: 1448,
+    imageHeight: 1086
   },
   {
     id: 'slide',
@@ -115,7 +123,9 @@ export const products: Product[] = [
       business: '18 ft commercial slide',
       enterprise: '24 ft+ slide with emergency braking'
     },
-    imageUrl: '/images/slide.webp'
+    imageUrl: '/images/slide.webp',
+    imageWidth: 1200,
+    imageHeight: 896
   },
   {
     id: 'narrow-slide',
@@ -138,7 +148,9 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: '/images/narrow-slide.webp'
+    imageUrl: '/images/narrow-slide.webp',
+    imageWidth: 1536,
+    imageHeight: 1024
   },
   {
     id: 'scaffolding',
@@ -161,7 +173,9 @@ export const products: Product[] = [
       business: '3-level scaffolding with platforms',
       enterprise: '5+ levels with safety certifications'
     },
-    imageUrl: '/images/scaffolding.webp'
+    imageUrl: '/images/scaffolding.webp',
+    imageWidth: 1200,
+    imageHeight: 896
   }
 ];
 

@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Bostrich — Contact"
-  description="Get in touch with our team for enterprise inquiries and custom solutions."
+  title="Contact — Bostrich"
+  description="Connect with our enterprise team. Custom solutions, volume pricing, and strategic partnerships for organizations ready to scale."
 >
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="max-w-2xl mx-auto">
@@ -107,12 +107,45 @@ import Layout from '../layouts/Layout.astro';
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successMessage = document.getElementById('success-message');
+  const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Hide form, show success
-    form.classList.add('hidden');
-    successMessage?.classList.remove('hidden');
+    const formData = new FormData(form);
+    const data = {
+      firstName: formData.get('first-name'),
+      lastName: formData.get('last-name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      message: formData.get('message'),
+    };
+
+    // Disable button during submission
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMessage?.classList.remove('hidden');
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      alert('Failed to send message. Please try again or email us directly.');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+    }
   });
 </script>

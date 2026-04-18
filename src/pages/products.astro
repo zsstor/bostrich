@@ -7,7 +7,7 @@ const products = getAllProducts();
 
 <Layout
   title="Products — Bostrich"
-  description="Browse our catalog of ladders, ramps, slides, and scaffolding for your business needs."
+  description="Enterprise-grade solutions for vertical mobility, smooth transitions, and accelerated offboarding. Purpose-built infrastructure for scaling organizations."
 >
   <!-- CollectionPage + ItemList JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -43,6 +43,8 @@ const products = getAllProducts();
                 <img
                   src={product.imageUrl}
                   alt={product.name}
+                  width={product.imageWidth}
+                  height={product.imageHeight}
                   class="w-full h-48 object-cover"
                   loading="lazy"
                 />
