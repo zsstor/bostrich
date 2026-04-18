@@ -118,11 +118,11 @@ export const products: Product[] = [
     imageUrl: '/images/slide.png'
   },
   {
-    id: 'lean-slide',
-    name: 'Lean Slide',
-    slug: 'lean-slide',
+    id: 'narrow-slide',
+    name: 'Narrow Slide',
+    slug: 'narrow-slide',
     tagline: 'Offboarding accelerators for lean startups',
-    description: 'A narrower slide. Best deployed as a contingency plan to de-risk your exit strategy. Fits through standard office doorways.',
+    description: 'A narrower slide. Best for lean teams, but can also be deployed as a contingency plan to de-risk your exit strategy. Fits through standard office doorways.',
     price: 249,
     specs: {
       height: '8 ft',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       business: '12 ft narrow slide',
       enterprise: '16 ft narrow slide with reduced friction'
     },
-    imageUrl: '/images/lean-slide.png'
+    imageUrl: '/images/narrow-slide.png'
   },
   {
     id: 'scaffolding',
