@@ -1,0 +1,149 @@
+**Current State**
+
+The baseline is decent: [Layout.astro](/home/zzs/dev/bostrich/src/layouts/Layout.astro:29) already emits canonical, description, OG/Twitter tags, and Astro is generating a sitemap via [astro.config.mjs](/home/zzs/dev/bostrich/astro.config.mjs:6). A production build succeeded and confirmed `sitemap-index.xml` is generated.
+
+The main SEO gaps are structural, not foundational:
+1. `/cart/` is indexable and is included in the generated sitemap.
+2. The home, products, and product-detail pages use weak keyword targeting.
+3. Product pages put the tagline in the `h1` instead of the actual product name.
+4. Product/category pages are missing collection-level structured data.
+5. Images are unoptimized HTML `<img>` tags without intrinsic dimensions.
+
+**Prioritized Recommendations**
+
+1. Exclude utility pages from indexing first.
+`/cart/` is currently canonicalized and included in the sitemap from [cart.astro](/home/zzs/dev/bostrich/src/pages/cart.astro:10) and the generated sitemap. That is the clearest SEO cleanup.
+
+Suggested change in [Layout.astro](/home/zzs/dev/bostrich/src/layouts/Layout.astro:6):
+```astro
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const { noindex = false, ...rest } = Astro.props;
+const robots = noindex ? 'noindex, nofollow' : 'index, follow';
+```
+
+```astro
+<meta name="robots" content={robots} />
+<meta name="googlebot" content={robots} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+```
+
+Then in [cart.astro](/home/zzs/dev/bostrich/src/pages/cart.astro:10):
+```astro
+<Layout
+  title="Bostrich — Cart"
+  description="Review your cart and proceed to checkout."
+  noindex
+>
+```
+
+And in [astro.config.mjs](/home/zzs/dev/bostrich/astro.config.mjs:6), use Astro sitemap’s documented `filter()` option:
+```js
+integrations: [
+  sitemap({
+    filter: (page) => page !== 'https://bostri.ch/cart/',
+  }),
+],
+```
+
+Source: Astro sitemap docs `filter()` and sitemap link guidance: https://docs.astro.build/en/guides/integrations-guide/sitemap/
+
+2. Rewrite titles and descriptions around the actual joke premise and product nouns.
+Right now the homepage title is just `Bostrich` in [index.astro](/home/zzs/dev/bostrich/src/pages/index.astro:8), and the products page description is generic in [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:8). Those snippets will struggle to win clicks.
+
+Suggested updates:
+```astro
+// src/pages/index.astro
+<Layout
+  title="Bostrich | Satirical SaaS for Ladders, Ramps, Slides & Scaffolding"
+  description="Bostrich is a satirical SaaS storefront that markets ladders, ramps, slides, rope ladders, and scaffolding like enterprise software."
+>
+```
+
+```astro
+// src/pages/products.astro
+<Layout
+  title="Products | Ladders, Ramps, Slides & Scaffolding | Bostrich"
+  description="Browse Bostrich products: ladders, rope ladders, ramps, slides, narrow slides, and scaffolding packaged with deadpan enterprise software marketing."
+>
+```
+
+```astro
+// src/pages/products/[slug].astro
+<Layout
+  title={`${product.name} | ${product.tagline} | Bostrich`}
+  description={`${product.description} ${product.specs.material} construction, ${formatPrice(product.price)}, free shipping on orders over $500.`}
+>
+```
+
+3. Make the product name the `h1` on detail pages.
+In [products/[slug].astro](/home/zzs/dev/bostrich/src/pages/products/[slug].astro:84), the `h1` is the tagline, while the product name is only a paragraph. That is backwards for search intent and document structure.
+
+Recommended change:
+```astro
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+  {product.name}
+</h1>
+<p class="text-xl text-indigo-600 mb-4">
+  {product.tagline}
+</p>
+```
+
+4. Add collection structured data to the products page.
+Product pages already have `Product` and breadcrumb schema in [products/[slug].astro](/home/zzs/dev/bostrich/src/pages/products/[slug].astro:24), which is good. But the category page lacks an `ItemList`, and the homepage lacks any page-type schema beyond the global `Organization`.
+
+Suggested addition in [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:12):
+```astro
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Bostrich Products",
+  "url": "https://bostri.ch/products",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": products.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://bostri.ch/products/${product.slug}`,
+      "name": product.name
+    }))
+  }
+})} />
+```
+
+5. Switch product images to Astro’s image components.
+Current listing/detail images in [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:26) and [products/[slug].astro](/home/zzs/dev/bostrich/src/pages/products/[slug].astro:73) are plain `<img>` tags with no width/height. That leaves performance and CLS gains on the table, which feeds into SEO.
+
+Best version:
+- Move images from `public/images/` into `src/assets/images/`
+- Store imported image metadata in `data.ts`
+- Render with `astro:assets` `<Image />`
+
+Example:
+```astro
+---
+import { Image } from 'astro:assets';
+---
+<Image
+  src={product.image}
+  alt={product.name}
+  widths={[400, 800, 1200]}
+  sizes="(min-width: 1024px) 50vw, 100vw"
+  priority
+/>
+```
+
+Astro docs: `<Image />` adds proper dimensions and optimized output: https://docs.astro.build/en/guides/images/ and https://docs.astro.build/en/reference/modules/astro-assets/
+
+**Secondary Fixes**
+
+- The header logo text currently uses the page title in [Header.astro](/home/zzs/dev/bostrich/src/components/Header.astro:20), so pages render branded links like `Bostrich — Cart`. Make that always `Bostrich`.
+- [Layout.astro](/home/zzs/dev/bostrich/src/layouts/Layout.astro:77) wraps the slot in `<main>`, and pages also render their own `<main>`, producing nested `main` landmarks. Low severity, but worth cleaning up.
+
+Build verification: `npm run build` passed, and the generated sitemap currently includes `https://bostri.ch/cart/`, which confirms the first fix should be the immediate priority.

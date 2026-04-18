@@ -7,7 +7,11 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://bostri.ch',
   output: 'static',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/cart'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

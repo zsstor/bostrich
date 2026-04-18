@@ -1,0 +1,54 @@
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+The current SEO setup for Bostrich is robust and adheres to modern best practices, particularly with its comprehensive meta tags, dynamic product page schemas, automated sitemap, and well-configured `robots.txt`.
+
+Instead of finding "missing" fundamental optimizations, the focus should shift to **refinement** and **advanced techniques** to further enhance visibility and user experience.
+
+Here are the prioritized recommendations:
+
+### Prioritized Recommendations
+
+1.  **Implement Structured Data for Other Content Types:**
+    *   **Impact:** High
+    *   **Effort:** Medium
+    *   **Description:** While product pages have excellent structured data, other general pages (e.g., "About Us", "Contact", "Subscription", "Home") could benefit from relevant JSON-LD schemas. This helps search engines better understand the content and potentially display rich snippets.
+    *   **Specific Code Changes:** Add `WebSite` schema to `index.astro` (Homepage).
+    *   **Future Considerations:** Explore `AboutPage`, `ContactPage`, or `LocalBusiness` schemas for respective pages as needed.
+
+2.  **Optimize Image Alt Text:**
+    *   **Impact:** Medium-High
+    *   **Effort:** Ongoing/Medium
+    *   **Description:** Ensure all `<img>` tags have descriptive `alt` attributes. This is crucial for accessibility (screen readers) and provides search engines with context about the image content, which can aid in image search rankings.
+    *   **Specific Code Changes:** This requires reviewing all image usages throughout the site. For existing images, manually add or improve `alt` text. For future images, enforce this as a development standard.
+
+3.  **Review Content Quality and Keywords:**
+    *   **Impact:** High
+    *   **Effort:** Ongoing
+    *   **Description:** Regularly audit content for quality, relevance, and target keyword integration. Ensure content is valuable to users and naturally incorporates terms that the target audience searches for. This is a content strategy, not a code change, but is fundamental to SEO success.
+    *   **Specific Code Changes:** None, but recommend a content review process.
+
+4.  **Explicit Canonical URLs:**
+    *   **Impact:** Medium
+    *   **Effort:** Low
+    *   **Description:** Although Astro's routing generally handles canonicalization and the sitemap helps, explicitly defining canonical URLs using `<link rel="canonical" href="...">` on all pages can prevent potential duplicate content issues, especially if URL parameters are used or external sites link inconsistently.
+    *   **Specific Code Changes:** Update `src/layouts/Layout.astro` to include a canonical tag that can be overridden by individual pages.
+
+5.  **Performance Optimization (Page Speed):**
+    *   **Impact:** High
+    *   **Effort:** Medium-High
+    *   **Description:** Page loading speed is a critical ranking factor and user experience metric. Leverage Astro's built-in optimizations (e.g., static site generation, image optimization) and investigate further enhancements.
+    *   **Specific Code Changes:** Investigate using image optimization tools (if not already fully implemented) or optimizing critical CSS/JS. This is an ongoing task.
+
+---
+
+### Implementation for Recommendation 1: Add WebSite Schema to `index.astro`
+
+I will add a basic `WebSite` schema to `src/pages/index.astro`. This schema helps search engines understand the website as a whole.
+
+First, I need to read the content of `src/pages/index.astro` to identify the best place to insert the script.
+I have completed the following SEO optimizations:
+
+1.  **Implemented Structured Data for Home Page:** I added a `WebSite` JSON-LD schema to `src/pages/index.astro`. This helps search engines better understand the overall context of the website.
+2.  **Implemented Explicit Canonical URLs:** I modified `src/layouts/Layout.astro` to allow individual pages to provide a `canonical` URL explicitly. This canonical URL will now be used for the `<link rel="canonical">` tag, as well as for Open Graph and Twitter card URLs, providing more control and preventing potential duplicate content issues.
+
+The remaining recommendations (Image Alt Text, Content Quality, and Performance Optimization) are either ongoing tasks or primarily content/strategy-focused that require manual review or external tools. I have provided the framework for the code changes where applicable.

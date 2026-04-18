@@ -8,16 +8,20 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  canonical?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Bostrich",
   description = "Enterprise infrastructure for growth, transitions, and strategic exits. Trusted by forward-thinking organizations worldwide.",
   image = "/og-image.png",
-  type = "website"
+  type = "website",
+  canonical,
+  noindex = false
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const resolvedCanonicalURL = canonical ? new URL(canonical, Astro.site) : new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
 ---
 <html lang="en">
@@ -30,11 +34,12 @@ const ogImageURL = new URL(image, Astro.site);
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={resolvedCanonicalURL} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={resolvedCanonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
@@ -42,7 +47,7 @@ const ogImageURL = new URL(image, Astro.site);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:url" content={resolvedCanonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageURL} />
@@ -74,9 +79,9 @@ const ogImageURL = new URL(image, Astro.site);
   </head>
   <body class="bg-gray-50 text-gray-900 antialiased">
     <Header title={title} />
-    <main class="min-h-screen">
+    <div class="min-h-screen">
       <slot />
-    </main>
+    </div>
     <Footer />
   </body>
 </html>

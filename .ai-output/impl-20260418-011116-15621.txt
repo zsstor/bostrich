@@ -1,0 +1,19 @@
+**Findings**
+1. High: The contact form never submits anywhere, but it shows a “Message sent” success state anyway. That means user inquiries are silently dropped, which is a real functional bug, not just placeholder behavior. See [contact.astro](/home/zzs/dev/bostrich/src/pages/contact.astro:18) and the submit handler at [contact.astro](/home/zzs/dev/bostrich/src/pages/contact.astro:107).
+
+2. Medium: Cart state parsing is brittle across the site. Multiple places call `JSON.parse(localStorage.getItem(...))` without a `try/catch` or schema validation, so one malformed `bostrich_cart` value can break the header cart badge, product add-to-cart flows, and cart page rendering for that browser until storage is manually cleared. See [cart.ts](/home/zzs/dev/bostrich/src/lib/cart.ts:11), [Header.astro](/home/zzs/dev/bostrich/src/components/Header.astro:127), [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:72), [products/[slug].astro](/home/zzs/dev/bostrich/src/pages/products/[slug].astro:215), and [cart.astro](/home/zzs/dev/bostrich/src/pages/cart.astro:74).
+
+3. Medium: The layout already renders a top-level `<main>`, but every page also renders its own `<main>`, producing nested main landmarks throughout the site. That is invalid HTML and hurts accessibility/navigation for assistive tech. See [Layout.astro](/home/zzs/dev/bostrich/src/layouts/Layout.astro:77) plus examples in [index.astro](/home/zzs/dev/bostrich/src/pages/index.astro:9), [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:12), and [about.astro](/home/zzs/dev/bostrich/src/pages/about.astro:9).
+
+4. Low: The header logo text is driven by the page `<title>` prop instead of the brand name, so internal pages render branding like “Bostrich — Products” in the navbar logo. That is a UX/content bug in shared chrome. See [Layout.astro](/home/zzs/dev/bostrich/src/layouts/Layout.astro:76) and [Header.astro](/home/zzs/dev/bostrich/src/components/Header.astro:2).
+
+5. Low: Cart logic is duplicated in three route-level scripts instead of using the shared cart utility module, so behavior can drift and fixes will have to be repeated in several places. The duplication is already visible in add/update/remove logic and cart event dispatching. See [cart.ts](/home/zzs/dev/bostrich/src/lib/cart.ts:11), [products.astro](/home/zzs/dev/bostrich/src/pages/products.astro:63), [products/[slug].astro](/home/zzs/dev/bostrich/src/pages/products/[slug].astro:196), and [cart.astro](/home/zzs/dev/bostrich/src/pages/cart.astro:62).
+
+6. Low: The footer exposes social links that point to `#`, so keyboard and screen-reader users are offered navigation targets that do nothing. If these are placeholders, they should be removed or replaced with real URLs before shipping. See [Footer.astro](/home/zzs/dev/bostrich/src/components/Footer.astro:54).
+
+**Open Questions**
+- Is the fake-success contact form intentional satire, or should the page at least open a `mailto:` / external form so leads are not lost?
+- Are the privacy/terms pages meant to function as real legal pages? If yes, they need legal review outside normal code review scope.
+
+**Verification**
+`npm run build` completed successfully on April 18, 2026. No build-time errors surfaced; the issues above are runtime, UX, accessibility, and maintainability problems.
