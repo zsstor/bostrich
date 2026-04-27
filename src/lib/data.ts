@@ -59,7 +59,7 @@ export const products: Product[] = [
     name: 'Rope Ladder',
     slug: 'rope-ladder',
     tagline: 'Flexible infrastructure for agile teams',
-    description: 'A rope ladder. Built for teams that pivot fast and iterate faster. Adapts to any environment.',
+    description: 'A rope ladder. Built for agile teams that pivot fast and iterate faster. Adapts to any environment.',
     price: 89,
     specs: {
       length: '8 ft',
