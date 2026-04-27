@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bostri.ch',
+  site: 'https://verticaldigitalholdings.com',
   output: 'static',
   integrations: [
     sitemap({

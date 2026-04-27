@@ -7,7 +7,7 @@ const productsJson = JSON.stringify(products);
 const checkoutUrl = 'https://fosterparrotsandthenewenglandexoticwildlifesanctuary-bloom.kindful.com/';
 ---
 
-<Layout title="Cart — Bostrich" description="Review your cart and proceed to checkout." noindex>
+<Layout title="Cart — Vertical Digital Holdings" description="Review your cart and proceed to checkout." noindex>
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Your Cart</h1>
 
@@ -61,7 +61,7 @@ const checkoutUrl = 'https://fosterparrotsandthenewenglandexoticwildlifesanctuar
 
 <script define:vars={{ productsJson, checkoutUrl }}>
   const products = JSON.parse(productsJson);
-  const cartKey = 'bostrich_cart';
+  const cartKey = 'vdh_cart';
 
   function formatPrice(price) {
     return '$' + price.toLocaleString();

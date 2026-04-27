@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     await transporter.sendMail({
-      from: `"Bostrich Contact" <${GMAIL_ADDRESS}>`,
+      from: `"Vertical Digital Holdings" <${GMAIL_ADDRESS}>`,
       to: GMAIL_ADDRESS,
       replyTo: email,
       subject: `Contact from ${firstName} ${lastName}${company ? ` at ${company}` : ''}`,

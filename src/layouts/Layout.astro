@@ -13,7 +13,7 @@ interface Props {
 }
 
 const {
-  title = "Bostrich",
+  title = "Vertical Digital Holdings",
   description = "Enterprise infrastructure for growth, transitions, and strategic exits. Trusted by forward-thinking organizations worldwide.",
   image = "/og-image.jpg",
   type = "website",
@@ -43,7 +43,7 @@ const ogImageURL = new URL(image, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="Bostrich" />
+    <meta property="og:site_name" content="Vertical Digital Holdings" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -65,9 +65,9 @@ const ogImageURL = new URL(image, Astro.site);
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Bostrich",
-      "url": "https://bostri.ch",
-      "logo": "https://bostri.ch/favicon.png",
+      "name": "Vertical Digital Holdings",
+      "url": "https://verticaldigitalholdings.com",
+      "logo": "https://verticaldigitalholdings.com/favicon.png",
       "description": "Enterprise infrastructure for growth, transitions, and strategic exits.",
       "sameAs": []
     })} />

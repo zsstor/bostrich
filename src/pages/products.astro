@@ -6,21 +6,21 @@ const products = getAllProducts();
 ---
 
 <Layout
-  title="Products — Bostrich"
+  title="Products — Vertical Digital Holdings"
   description="Enterprise-grade solutions for vertical mobility, smooth transitions, and accelerated offboarding. Purpose-built infrastructure for scaling organizations."
 >
   <!-- CollectionPage + ItemList JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Bostrich Products",
-    "url": "https://bostri.ch/products",
+    "name": "Vertical Digital Holdings Products",
+    "url": "https://verticaldigitalholdings.com/products",
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": products.map((product, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "url": `https://bostri.ch/products/${product.slug}`,
+        "url": `https://verticaldigitalholdings.com/products/${product.slug}`,
         "name": product.name
       }))
     }
@@ -89,7 +89,7 @@ const products = getAllProducts();
       if (!productId) return;
 
       // Get existing cart or create new one
-      const cartKey = 'bostrich_cart';
+      const cartKey = 'vdh_cart';
       const stored = localStorage.getItem(cartKey);
       const cart = stored ? JSON.parse(stored) : [];
 

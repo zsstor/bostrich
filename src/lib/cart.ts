@@ -6,7 +6,7 @@ export interface CartItem {
   quantity: number;
 }
 
-const CART_KEY = 'bostrich_cart';
+const CART_KEY = 'vdh_cart';
 
 export function getCart(): CartItem[] {
   if (typeof window === 'undefined') return [];
