@@ -189,25 +189,25 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "VDH helped us reach the next level. Their solutions scaled perfectly with our vertical.",
+    quote: "Vertical Digital Holdings helped us reach the next level. Their solutions scaled perfectly with our vertical.",
     author: "Sarah Chen",
     title: "VP of Operations",
     company: "Gro.io"
   },
   {
-    quote: "When our board needed an exit strategy, VDH made the transition smooth and painless.",
+    quote: "When our board needed an exit strategy, Vertical Digital Holdings made the transition smooth and painless.",
     author: "Marcus Webb",
     title: "CEO",
     company: "Pivvot"
   },
   {
-    quote: "We needed infrastructure to support our growth. VDH delivered exactly what we needed to keep climbing.",
+    quote: "We needed infrastructure to support our growth. Vertical Digital Holdings delivered exactly what we needed to keep climbing.",
     author: "Jennifer Liu",
     title: "CTO",
     company: "Stackly"
   },
   {
-    quote: "The cliff was the hardest part of our compensation structure. VDH helped every executive get past it.",
+    quote: "The cliff was the hardest part of our compensation structure. Vertical Digital Holdings helped every executive get past it.",
     author: "David Park",
     title: "VP of People",
     company: "Vestly"
